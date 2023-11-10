@@ -44,4 +44,17 @@ class AnagramHelperTest {
         Assertions.assertEquals(random, helper.size());
     }
 
+    @Test
+    void shouldClearTheListAsNecessary() {
+        AnagramHelper helper = new AnagramHelper();
+        int random = (int) (Math.random() * (50 - 10)) + 10;
+        for (int idx = 0; idx < random; idx++) {
+            byte[] array = new byte[10];
+            new Random().nextBytes(array);
+            helper.addText(new String(array, StandardCharsets.UTF_8));
+        }
+        helper.clear();
+        Assertions.assertEquals(0, helper.size());
+    }
+
 }
