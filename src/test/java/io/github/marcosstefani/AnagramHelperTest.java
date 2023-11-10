@@ -57,4 +57,12 @@ class AnagramHelperTest {
         Assertions.assertEquals(0, helper.size());
     }
 
+    @Test
+    void shouldNotRepeatTheInputText() {
+        AnagramHelper helper = new AnagramHelper();
+        final String something = "something";
+        helper.addText(something);
+        assertThrows(IllegalArgumentException.class, () -> helper.addText(something));
+    }
+
 }
